@@ -15,7 +15,7 @@ namespace RC4_Algorithm
             byte[] encryptedText = Encryption(pass, plainText);
             // Decryption
             byte[] decryptedText = Decryption(pass,encryptedText);
-            // Print Screen
+            // Print Console
             PrintConsole(encryptedText,decryptedText);
 
         }

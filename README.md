@@ -10,5 +10,5 @@ Rivest Cipher 4 Algorithm
 > PrintScreen(encryptedText,decryptedText);PrintScreen(encryptedText,decryptedText);
 
 ###  **Convert String to Byte**
->  byte[] pass = Encoding.ASCII.GetBytes("test");
->  byte[] plainText = Encoding.ASCII.GetBytes("mikail");
+> byte[] pass = Encoding.ASCII.GetBytes("test");
+> byte[] plainText = Encoding.ASCII.GetBytes("mikail");

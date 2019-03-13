@@ -1,5 +1,5 @@
-# RC4-Algorithm
-Rivest Cipher 4 Algorithm
+# Rivest Cipher 4 Algorithm (RC4)
+
 
 #### **Use**
 ```csharp

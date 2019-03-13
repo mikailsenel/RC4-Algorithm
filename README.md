@@ -9,15 +9,15 @@ Table of contents
 =================
 
 <!--ts-->
-   * [Use](#gh-md-toc)
-      * [Encryption](#gh-md-toc)
-      * [Decryption](#gh-md-toc)
-      * [Print Console](#gh-md-toc)
-   * [Convert String to Byte](#table-of-contents)
-   * [Encryption Method](#installation)
-   * [Decryption Method](#installation)
-   * [Swap Method](#installation)
-   * [Print Console Method](#installation)
+   * [Use](#use)
+      * [Encryption](#use)
+      * [Decryption](#use)
+      * [Print Console](#use)
+   * [Convert String to Byte](#convert-string-to-byte)
+   * [Encryption Method](#encryption-method)
+   * [Decryption Method](#decryption-method)
+   * [Swap Method](#swap-method)
+   * [Print Console Method](#print-console-method)
 <!--te-->
 
 

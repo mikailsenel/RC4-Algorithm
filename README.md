@@ -4,7 +4,7 @@
 #### **Use**
 ```csharp
 // Encryption
- byte[] encryptedText = Encryption(pass, plainText);
+byte[] encryptedText = Encryption(pass, plainText);
 // Decryption
 byte[] decryptedText = Decryption(pass,encryptedText);
 // Print Screen

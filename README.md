@@ -1,4 +1,4 @@
-# Rivest Cipher 4 Algorithm (RC4)
+Rivest Cipher 4 Algorithm (RC4)
 =================
 
 <!--ts-->

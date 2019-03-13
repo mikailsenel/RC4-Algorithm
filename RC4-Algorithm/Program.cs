@@ -7,12 +7,15 @@ namespace RC4_Algorithm
     {
         static void Main(string[] args)
         {
+            //Convert String to Byte (ASCII)
             byte[] pass = Encoding.ASCII.GetBytes("test");
             byte[] plainText = Encoding.ASCII.GetBytes("mikail");
-            
-            byte[] encryptedText = Encryption(pass, plainText);
-            byte[] decryptedText = Decryption(pass,encryptedText);
 
+            // Encryption
+            byte[] encryptedText = Encryption(pass, plainText);
+            // Decryption
+            byte[] decryptedText = Decryption(pass,encryptedText);
+            // Print Screen
             PrintScreen(encryptedText,decryptedText);
 
         }

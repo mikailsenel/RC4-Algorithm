@@ -1,11 +1,4 @@
 # Rivest Cipher 4 Algorithm (RC4)
-
-
-
-[TOCM]
-
-
-Table of contents
 =================
 
 <!--ts-->

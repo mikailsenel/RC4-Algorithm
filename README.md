@@ -1,7 +1,7 @@
 # RC4-Algorithm
 Rivest Cipher 4 Algorithm
 
-#### # **Use**
+### **Use**
 - Encryption
 > byte[] encryptedText = Encryption(pass, plainText);	- byte[] encryptedText = Encryption(pass, plainText);
 - Decryption
@@ -9,6 +9,6 @@ Rivest Cipher 4 Algorithm
 - Print Screen
 > PrintScreen(encryptedText,decryptedText);PrintScreen(encryptedText,decryptedText);
 
-#### # **Convert String to Byte**
+###  **Convert String to Byte**
 >  byte[] pass = Encoding.ASCII.GetBytes("test");
  byte[] plainText = Encoding.ASCII.GetBytes("mikail");

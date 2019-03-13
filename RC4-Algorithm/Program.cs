@@ -16,7 +16,7 @@ namespace RC4_Algorithm
             // Decryption
             byte[] decryptedText = Decryption(pass,encryptedText);
             // Print Screen
-            PrintScreen(encryptedText,decryptedText);
+            PrintConsole(encryptedText,decryptedText);
 
         }
 
@@ -67,7 +67,7 @@ namespace RC4_Algorithm
             array[number2] = temp;
         }
 
-        public static void PrintScreen(byte[] encryptedText,byte[] decryptedText)
+        public static void PrintConsole(byte[] encryptedText,byte[] decryptedText)
         {
             Console.WriteLine("------------------Encryption------------------");
             Console.WriteLine("--------Byte-------");

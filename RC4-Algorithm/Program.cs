@@ -37,12 +37,12 @@ namespace RC4_Algorithm
                 case "1":
                     byte[] cipherText = program.Encryption();           //Encryption Call
                     Console.WriteLine("\nText is encrypted.\n\n");
-                    program.PrintScreen(cipherText);
+                    program.PrintConsole(cipherText);
                     break;
                 case "2":
                     byte[] solvedText = program.Decryption();           //Decryption Call
                     Console.WriteLine("\nText is Decrypted.\n\n");
-                    program.PrintScreen(solvedText);
+                    program.PrintConsole(solvedText);                    //Print Screen
                     break;
             }
         }
@@ -116,7 +116,7 @@ namespace RC4_Algorithm
             return solvedText;
         }
 
-        public void PrintScreen(byte[] printText)
+        public void PrintConsole(byte[] printText)
         {
             Console.Write("Result: \nBase64: ");
             Console.WriteLine(Convert.ToBase64String(printText));

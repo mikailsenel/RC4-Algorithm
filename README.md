@@ -140,3 +140,6 @@ Print Console
         }
         }
 ```
+> Screenshot
+
+![](https://i.ibb.co/CWwp572/screenshot.png)

@@ -37,12 +37,12 @@ namespace RC4_Algorithm
                 case "1":
                     byte[] cipherText = program.Encryption();           //Encryption Call
                     Console.WriteLine("\nText is encrypted.\n\n");
-                    program.PrintConsole(cipherText);
+                    program.PrintConsole(cipherText);       
                     break;
                 case "2":
                     byte[] solvedText = program.Decryption();           //Decryption Call
                     Console.WriteLine("\nText is Decrypted.\n\n");
-                    program.PrintConsole(solvedText);                    //Print Screen
+                    program.PrintConsole(solvedText);                    //Print Console
                     break;
             }
         }

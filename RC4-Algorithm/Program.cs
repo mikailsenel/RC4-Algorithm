@@ -20,27 +20,28 @@ namespace RC4_Algorithm
 
         static void Main(string[] args)
         {
-            Console.Write("Metni giriniz: ");
+            Console.Write("Enter text: ");
             string t = Console.ReadLine();
-            Console.Write("Anahtarı giriniz: ");
+            Console.Write("Enter key: ");
             string k = Console.ReadLine();
-            Program program = new Program(Encoding.ASCII.GetBytes(t), Encoding.ASCII.GetBytes(k));
+            Program program = new Program
+                (Encoding.ASCII.GetBytes(t), Encoding.ASCII.GetBytes(k));
             program.Initialize();
-            program.KSA();
-            program.PRGA();
+            program.KSA();      //Key - scheduling algorithm
+            program.PRGA();     //Pseudo - random generation algorithm
 
-            Console.Write("\n1) Encryption \n2) Decryption \nSeçiminiz: ");
+            Console.Write("\n1) Encryption \n2) Decryption \nSelection: ");
             string secim = Console.ReadLine();
             switch (secim)
             {
                 case "1":
-                    byte[] cipherText = program.Encryption();
-                    Console.WriteLine("\nMetniniz Şifrelenmiştir.\n\n");
+                    byte[] cipherText = program.Encryption();           //Encryption Call
+                    Console.WriteLine("\nText is encrypted.\n\n");
                     program.PrintScreen(cipherText);
                     break;
                 case "2":
-                    byte[] solvedText = program.Decryption();
-                    Console.WriteLine("\nŞifreli Metniniz Çözülmüştür.\n\n");
+                    byte[] solvedText = program.Decryption();           //Decryption Call
+                    Console.WriteLine("\nText is Decrypted.\n\n");
                     program.PrintScreen(solvedText);
                     break;
             }
@@ -68,6 +69,7 @@ namespace RC4_Algorithm
                 sBox = Swap(i, j, sBox);
             }
         }
+
         /// <summary>
         ///             Pseudo-random generation algorithm 
         /// </summary>
@@ -116,7 +118,7 @@ namespace RC4_Algorithm
 
         public void PrintScreen(byte[] printText)
         {
-            Console.Write("Sonuç: \nBase64: ");
+            Console.Write("Result: \nBase64: ");
             Console.WriteLine(Convert.ToBase64String(printText));
             Console.Write("String: "+Encoding.ASCII.GetString(printText));
             Console.ReadLine();

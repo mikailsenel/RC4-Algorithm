@@ -2,20 +2,20 @@ Rivest Cipher 4 Algorithm (RC4)
 =================
 
 <!--ts-->
-   * [Construction](#convert-string-to-byte)
+   * [Construction](#construction)
    * [Use](#use)
       * [KSA Call](#use)
       * [PRGA Call](#use)
       * [Encryption Call](#use)
       * [Decryption Call](#use)
       * [Print Console Call](#use)
-   * [Initialize](#convert-string-to-byte)
-   * [KSA (Key-scheduling algorithm)](#encryption-method)
-   * [PRGA (Pseudo-random generation algorithm)](#decryption-method)
-   * [Swap](#swap-method)
-   * [Encryption](#print-console-method)
-   * [Decryption](#print-console-method)
-   * [Print Console](#print-console-method)
+   * [Initialize](#initialize)
+   * [KSA (Key-scheduling algorithm)](#ksa-key-scheduling-algorithm)
+   * [PRGA (Pseudo-random generation algorithm)](#prga-pseudo-random-generation-algorithm)
+   * [Swap](#swap)
+   * [Encryption](#encryption)
+   * [Decryption](#decryption)
+   * [Print Console](##print-console)
 <!--te-->
 
 Construction

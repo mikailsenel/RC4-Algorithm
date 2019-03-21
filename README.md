@@ -15,7 +15,7 @@ Rivest Cipher 4 Algorithm (RC4)
    * [Swap](#swap)
    * [Encryption](#encryption)
    * [Decryption](#decryption)
-   * [Print Console](##print-console)
+   * [Print Console](#print-console)
 <!--te-->
 
 Construction

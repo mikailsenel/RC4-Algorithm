@@ -8,6 +8,7 @@ Rivest Cipher 4 Algorithm (RC4)
       * [Encryption Call](#use)
       * [Decryption Call](#use)
       * [Print Console Call](#use)
+   * [Construction methods](#convert-string-to-byte)
    * [Initialize](#convert-string-to-byte)
    * [KSA (Key-scheduling algorithm)](#encryption-method)
    * [PRGA (Pseudo-random generation algorithm)](#decryption-method)
@@ -32,7 +33,21 @@ Use
 	    byte[] solvedText = program.Decryption();           //Decryption Call
 	    program.PrintConsole(solvedText);                   //Print Console
 ```
+Construction methods
+============
+```csharp
+        private byte[] key, text;
+        private byte[] keyBox = new byte[256];
+        private int[] sBox = new int[256];
+        private int[] random;
 
+        public Program(byte[] text, byte[] key)
+        {
+            this.text = text;
+            this.key = key;
+            this.random = new int[text.Length];
+        }
+```
 Initialize
 ============
 ```csharp

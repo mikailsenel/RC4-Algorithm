@@ -16,6 +16,7 @@ Rivest Cipher 4 Algorithm (RC4)
    * [Encryption](#encryption)
    * [Decryption](#decryption)
    * [Print Console](#print-console)
+   * [Screenshot](#screenshot)
 <!--te-->
 
 Construction
@@ -140,6 +141,6 @@ Print Console
         }
         }
 ```
-> Screenshot
-
+Screenshot
+============
 ![](https://i.ibb.co/CWwp572/screenshot.png)

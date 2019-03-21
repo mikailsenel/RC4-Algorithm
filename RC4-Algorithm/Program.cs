@@ -1,102 +1,125 @@
 ﻿using System;
+using System.Security;
 using System.Text;
 
 namespace RC4_Algorithm
 {
     class Program
     {
-        static void Main(string[] args)
+        private byte[] key, text;
+        private byte[] keyBox = new byte[256];
+        private int[] sBox = new int[256];
+        private int[] random;
+
+        public Program(byte[] text, byte[] key)
         {
-            //Convert String to Byte (ASCII)
-            byte[] pass = Encoding.ASCII.GetBytes("test");
-            byte[] plainText = Encoding.ASCII.GetBytes("mikail");
-
-            // Encryption
-            byte[] encryptedText = Encryption(pass, plainText);
-            // Decryption
-            byte[] decryptedText = Decryption(pass,encryptedText);
-            // Print Console
-            PrintConsole(encryptedText,decryptedText);
-
+            this.text = text;
+            this.key = key;
+            this.random = new int[text.Length];
         }
 
-        public static byte[] Encryption(byte[] pass, byte[] plainText)
+        static void Main(string[] args)
         {
-            int t, i, j, k, temp;
-            int[] key, repo;
-            byte[] cipherText;
+            Console.Write("Metni giriniz: ");
+            string t = Console.ReadLine();
+            Console.Write("Anahtarı giriniz: ");
+            string k = Console.ReadLine();
+            Program program = new Program(Encoding.ASCII.GetBytes(t), Encoding.ASCII.GetBytes(k));
+            program.Initialize();
+            program.KSA();
+            program.PRGA();
 
-            key = new int[256];
-            repo = new int[256];
-            cipherText = new byte[plainText.Length];
-
-            for (i = 0; i < 256; i++)
+            Console.Write("\n1) Encryption \n2) Decryption \nSeçiminiz: ");
+            string secim = Console.ReadLine();
+            switch (secim)
             {
-                key[i] = pass[i % pass.Length];
-                repo[i] = i;
+                case "1":
+                    byte[] cipherText = program.Encryption();
+                    Console.WriteLine("\nMetniniz Şifrelenmiştir.\n\n");
+                    program.PrintScreen(cipherText);
+                    break;
+                case "2":
+                    byte[] solvedText = program.Decryption();
+                    Console.WriteLine("\nŞifreli Metniniz Çözülmüştür.\n\n");
+                    program.PrintScreen(solvedText);
+                    break;
             }
-            for (j = i = 0; i < 256; i++)
-            {
-                j = (j + repo[i] + key[i]) % 256;
+        }
 
-                Swap(repo,i,j);
-            }
-            for (t = j = i = 0; i < plainText.Length; i++)
+        public void Initialize()
+        {
+            //Bu metodda keyden 256 adet türetiyoruz.
+            for (int i = 0; i < keyBox.Length; i++)
             {
-                t = (t + 1) % 256;
-                j = (j + repo[t]) % 256;
-                
-                Swap(repo,t,j);
-                
-
-                k = repo[((repo[t] + repo[j]) % 256)];
-                cipherText[i] = (byte)(plainText[i] ^ k);
+                keyBox[i] = key[i % key.Length];
+                sBox[i] = i;
             }
+        }
+
+        /// <summary>
+        ///             Key-scheduling algorithm 
+        /// </summary>
+        public void KSA()
+        {
+            int j = 0;
+            for (int i = 0; i < keyBox.Length; i++)
+            {
+                j = (j + sBox[i] + keyBox[i]) % 256;
+                sBox = Swap(i, j, sBox);
+            }
+        }
+        /// <summary>
+        ///             Pseudo-random generation algorithm 
+        /// </summary>
+        public void PRGA() 
+        {
+            int j = 0, k = 0;
+            for (int i = 0; i < text.Length; i++)
+            {
+                j = (j + 1) % 256;
+                k = (k + sBox[j]) % 256;
+                sBox = Swap(k, j, sBox);
+                random[i] = sBox[(sBox[j] + sBox[k]) % 256];
+            }
+        }
+
+        public int[] Swap(int a, int b, int[] tempBox)
+        {
+
+            int temp = tempBox[a];
+            tempBox[a] = tempBox[b];
+            tempBox[b] = temp;
+            return tempBox;
+        }
+
+        public byte[] Encryption()
+        {
+            byte[] cipherText = new byte[text.Length];
+            for (int i = 0; i < text.Length; i++)
+            {
+                cipherText[i] = (byte)(random[i] ^ text[i]);
+            }
+
             return cipherText;
         }
 
-        public static byte[] Decryption(byte[] pass, byte[] plainText)
+        public byte[] Decryption()
         {
-            return Encryption(pass, plainText);
+            byte[] solvedText = new byte[text.Length];
+            for (int i = 0; i < text.Length; i++)
+            {
+                solvedText[i] = (byte)(random[i] ^ text[i]);
+            }
+
+            return solvedText;
         }
 
-        public static void Swap(int[] array, int number1, int number2)
+        public void PrintScreen(byte[] printText)
         {
-            int temp = array[number1];
-            array[number1] = array[number2];
-            array[number2] = temp;
-        }
-
-        public static void PrintConsole(byte[] encryptedText,byte[] decryptedText)
-        {
-            Console.WriteLine("------------------Encryption------------------");
-            Console.WriteLine("--------Byte-------");
-            foreach (byte item in encryptedText)
-            {
-                Console.Write(item + " - ");
-            }
-            Console.WriteLine();
-            Console.WriteLine("--------String-----");
-            foreach (byte item in encryptedText)
-            {
-                Console.Write((Convert.ToChar(item)).ToString() + " - ");
-            }
-            Console.WriteLine();
-            Console.WriteLine("------------------Decrypt------------------");
-            Console.WriteLine("--------Byte-------");
-            foreach (byte item in decryptedText)
-            {
-                Console.Write(item + " - ");
-            }
-            Console.WriteLine();
-            Console.WriteLine("--------String-----");
-            foreach (byte item in decryptedText)
-            {
-                Console.Write((Convert.ToChar(item)).ToString() + " - ");
-            }
+            Console.Write("Sonuç: \nBase64: ");
+            Console.WriteLine(Convert.ToBase64String(printText));
+            Console.Write("String: "+Encoding.ASCII.GetString(printText));
             Console.ReadLine();
-
-            
         }
     }
 }

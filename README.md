@@ -2,7 +2,7 @@ Rivest Cipher 4 Algorithm (RC4)
 =================
 
 <!--ts-->
-   * [Construction methods](#convert-string-to-byte)
+   * [Construction](#convert-string-to-byte)
    * [Use](#use)
       * [KSA Call](#use)
       * [PRGA Call](#use)
@@ -18,7 +18,7 @@ Rivest Cipher 4 Algorithm (RC4)
    * [Print Console](#print-console-method)
 <!--te-->
 
-Construction methods
+Construction
 ============
 ```csharp
         private byte[] key, text;

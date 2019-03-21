@@ -21,8 +21,7 @@ Rivest Cipher 4 Algorithm (RC4)
 Use
 ============
 ```csharp
-            Program program = new Program
-                (Encoding.ASCII.GetBytes(t), Encoding.ASCII.GetBytes(k));
+            Program program = new Program (Encoding.ASCII.GetBytes(t), Encoding.ASCII.GetBytes(k));
             program.Initialize();
             program.KSA();      //Key - scheduling algorithm
             program.PRGA();     //Pseudo - random generation algorithm

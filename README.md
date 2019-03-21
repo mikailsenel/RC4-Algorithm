@@ -28,11 +28,10 @@ Use
             program.PRGA();     //Pseudo - random generation algorithm
 			
             byte[] cipherText = program.Encryption();           //Encryption Call
-			program.PrintConsole(cipherText);                       //Print Console
-			
-			byte[] solvedText = program.Decryption();           //Decryption Call
-			
-			program.PrintConsole(solvedText);                       //Print Console
+	    program.PrintConsole(cipherText);                   //Print Console
+	    
+	    byte[] solvedText = program.Decryption();           //Decryption Call
+	    program.PrintConsole(solvedText);                   //Print Console
 ```
 
 Initialize

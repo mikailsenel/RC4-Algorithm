@@ -2,13 +2,13 @@ Rivest Cipher 4 Algorithm (RC4)
 =================
 
 <!--ts-->
+   * [Construction methods](#convert-string-to-byte)
    * [Use](#use)
       * [KSA Call](#use)
       * [PRGA Call](#use)
       * [Encryption Call](#use)
       * [Decryption Call](#use)
       * [Print Console Call](#use)
-   * [Construction methods](#convert-string-to-byte)
    * [Initialize](#convert-string-to-byte)
    * [KSA (Key-scheduling algorithm)](#encryption-method)
    * [PRGA (Pseudo-random generation algorithm)](#decryption-method)
@@ -18,21 +18,6 @@ Rivest Cipher 4 Algorithm (RC4)
    * [Print Console](#print-console-method)
 <!--te-->
 
-
-Use
-============
-```csharp
-            Program program = new Program (Encoding.ASCII.GetBytes(t), Encoding.ASCII.GetBytes(k));
-            program.Initialize();
-            program.KSA();      //Key - scheduling algorithm
-            program.PRGA();     //Pseudo - random generation algorithm
-			
-            byte[] cipherText = program.Encryption();           //Encryption Call
-	    program.PrintConsole(cipherText);                   //Print Console
-	    
-	    byte[] solvedText = program.Decryption();           //Decryption Call
-	    program.PrintConsole(solvedText);                   //Print Console
-```
 Construction methods
 ============
 ```csharp
@@ -47,6 +32,20 @@ Construction methods
             this.key = key;
             this.random = new int[text.Length];
         }
+```
+Use
+============
+```csharp
+            Program program = new Program (Encoding.ASCII.GetBytes(t), Encoding.ASCII.GetBytes(k));
+            program.Initialize();
+            program.KSA();      //Key - scheduling algorithm
+            program.PRGA();     //Pseudo - random generation algorithm
+			
+            byte[] cipherText = program.Encryption();           //Encryption Call
+	    program.PrintConsole(cipherText);                   //Print Console
+	    
+	    byte[] solvedText = program.Decryption();           //Decryption Call
+	    program.PrintConsole(solvedText);                   //Print Console
 ```
 Initialize
 ============
